@@ -1,0 +1,26 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<section class="messages-section" style="padding: 40px;">
+<h2>Полученные сообщения</h2>
+
+{% if messages %}
+<ul style="list-style: none; padding: 0;">
+{% for msg in messages %}
+<li style="border: 1px solid #ccc; padding: 15px; margin-bottom: 15px; border-radius: 8px;">
+<strong>Имя:</strong> {{ msg.name }}
+
+<strong>Email:</strong> {{ msg.email }}
+
+<strong>Сообщение:</strong>
+
+<p>{{ msg.message }}</p>
+<small style="color: gray;">Отправлено: {{ msg.created_at }}</small>
+</li>
+{% endfor %}
+</ul>
+{% else %}
+<p>Сообщений пока нет.</p>
+{% endif %}
+</section>
+{% endblock %}

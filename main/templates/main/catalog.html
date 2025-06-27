@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Каталог — Мой сайт</title>
+  <link rel="stylesheet" href="{% static 'main/css/catalog.css' %}" />
+</head>
+<body>
+
+<section id="catalog" class="catalog-section">
+  <div class="catalog-list">
+
+    <div class="catalog-item">
+      <img src="{% static 'main/images/perfume1.png' %}" alt="Аромат №1" data-large="{% static 'main/images/perfume1-large.png' %}" />
+      <div class="catalog-item-text">
+        <h3>Аромат №1</h3>
+        <p>Нежный и свежий букет для любого случая.</p>
+      </div>
+    </div>
+
+    <div class="catalog-item">
+      <img src="{% static 'main/images/perfume2.png' %}" alt="Аромат №2" data-large="{% static 'main/images/perfume2-large.png' %}" />
+      <div class="catalog-item-text">
+        <h3>Аромат №2</h3>
+        <p>Яркий и запоминающийся запах.</p>
+      </div>
+    </div>
+
+    <div class="catalog-item">
+      <img src="{% static 'main/images/perfume3.png' %}" alt="Аромат №3" data-large="{% static 'main/images/perfume3-large.png' %}" />
+      <div class="catalog-item-text">
+        <h3>Аромат №3</h3>
+        <p>Для тех, кто любит классику и элегантность.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Модальное окно -->
+<div id="image-modal">
+  <div>
+    <button id="modal-close" aria-label="Закрыть">&times;</button>
+    <img src="" alt="Увеличенное изображение" />
+  </div>
+</div>
+
+<script>
+// JS для открытия модалки и закрытия
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('image-modal');
+  const modalImg = modal.querySelector('img');
+  const closeBtn = document.getElementById('modal-close');
+
+  document.querySelectorAll('.catalog-item img').forEach(img => {
+    img.addEventListener('click', () => {
+      const largeSrc = img.getAttribute('data-large') || img.src;
+      modalImg.src = largeSrc;
+      modal.style.display = 'flex';
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+    modalImg.src = '';
+  });
+
+  // Закрытие модалки при клике вне картинки
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+      modalImg.src = '';
+    }
+  });
+});
+</script>
+
+</body>
+</html>

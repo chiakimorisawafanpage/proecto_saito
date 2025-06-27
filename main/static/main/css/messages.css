@@ -1,0 +1,93 @@
+/* messages.css - стили для раздела сообщений */
+
+.messages-section {
+  padding: 60px 20px;
+  background-color: rgb(19, 13, 13);
+  color: #fff;
+}
+
+.messages-section .container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.messages-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  color: #a66f6f;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+.messages-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.message-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #3a2c2f;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.message-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.75);
+}
+
+.message-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #3a2c2f;
+  padding-bottom: 10px;
+}
+
+.message-header h3 {
+  margin: 0;
+  font-size: 1.4em;
+  color: #a66f6f;
+  font-weight: 600;
+}
+
+.message-date {
+  color: #b5b5b5;
+  font-size: 0.9em;
+  font-style: italic;
+}
+
+.message-email {
+  margin-bottom: 10px;
+}
+
+.message-email a {
+  color: #ad8b8b;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.message-email a:hover {
+  color: #a66f6f;
+  text-decoration: underline;
+}
+
+.message-text {
+  color: #ddd;
+  line-height: 1.6;
+  font-size: 1em;
+  padding: 10px 0;
+}
+
+.empty-messages {
+  text-align: center;
+  color: #b5b5b5;
+  font-style: italic;
+  padding: 40px 0;
+  font-size: 1.2em;
+}

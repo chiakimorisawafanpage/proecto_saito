@@ -1,0 +1,66 @@
+/* base.css */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: rgb(63,17,6);
+  color: #ffffff;
+}
+
+h1, h2, h3 {
+  margin: 20px 0 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin: 10px 20px;
+  text-align: center;
+}
+
+/* Верхнее меню */
+.top-menu {
+  background-color: #1f1616;
+  padding: 10px 0;
+}
+
+.top-menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.top-menu ul li {
+  margin: 0 15px;
+}
+
+.top-menu ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+  padding: 6px 12px;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.top-menu ul li a:hover {
+  background-color: #555;
+  border-radius: 4px;
+}
+
+/* Контейнер */
+.container {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}

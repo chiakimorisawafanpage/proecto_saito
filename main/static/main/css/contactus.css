@@ -1,0 +1,202 @@
+/* contactus.css — современный минимализм с лёгким готическим настроением */
+
+.contact-section {
+  background-color: #121212;
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 480px;
+  font-family: 'Merriweather', serif;
+  color: #ccc;
+}
+
+.contact-container {
+  background-color: #1e1e1e;
+  padding: 36px 32px;
+  border-radius: 12px;
+  max-width: 520px;
+  width: 100%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.75);
+  border: 1px solid #3a2c2f;
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+
+.contact-container h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #a66f6f; /* мягкий бордовый */
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.contact-subtitle {
+  font-size: 1rem;
+  margin-bottom: 28px;
+  font-weight: 400;
+  color: #b5b5b5;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 2px rgba(166, 111, 111, 0.3);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.form-group label {
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #ad8b8b;
+  font-size: 1rem;
+}
+
+.form-group input,
+.form-group textarea {
+  background-color: #2e2e2e;
+  border: 1.5px solid #5a4747;
+  border-radius: 8px;
+  padding: 14px 18px;
+  color: #ddd;
+  font-size: 1rem;
+  font-family: 'Merriweather', serif;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: inset 0 0 6px rgba(90, 71, 71, 0.4);
+  resize: vertical;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #9c8585;
+  font-style: italic;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #a66f6f;
+  box-shadow:
+    0 0 8px #a66f6f,
+    inset 0 0 8px #8c5b5b;
+  outline: none;
+  background-color: #3a2a2a;
+  color: #fff;
+}
+
+.contact-button {
+  background-color: #7a5757;
+  color: #f1e9e9;
+  padding: 14px 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-family: 'Merriweather', serif;
+  box-shadow: 0 4px 12px rgba(166, 111, 111, 0.6);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-button:hover,
+.contact-button:focus {
+  background-color: #a66f6f;
+  box-shadow: 0 0 14px #a66f6f;
+  color: #fff;
+  outline: none;
+}
+
+/* Модальное окно */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(20, 20, 20, 0.85);
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+  font-family: 'Merriweather', serif;
+  color: #ddd;
+  user-select: none;
+}
+
+.modal .modal-content {
+  background-color: #2e2e2e;
+  color: #ddd;
+  padding: 28px 36px;
+  border-radius: 10px;
+  max-width: 380px;
+  width: 90%;
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.7);
+  position: relative;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 1px solid #555;
+  transition: box-shadow 0.3s ease;
+}
+
+.modal .modal-content:hover {
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.85);
+}
+
+.modal .close {
+  position: absolute;
+  top: 12px; right: 16px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #999;
+  transition: color 0.25s ease;
+  user-select: none;
+}
+
+.modal .close:hover {
+  color: #ccc;
+}
+
+.modal p {
+  margin-top: 16px;
+  line-height: 1.4;
+  font-style: italic;
+  letter-spacing: 0.03em;
+  color: #bbb;
+}
+.success-message {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}

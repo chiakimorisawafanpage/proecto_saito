@@ -1,0 +1,121 @@
+/* Основные стили каталога */
+.catalog-section {
+  padding: 60px 20px;
+  background-color: rgb(19, 13, 13);
+  color: #fff;
+}
+
+.catalog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.catalog-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.catalog-item img {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  max-width: 280px;
+  border-radius: 8px;
+  will-change: transform;
+}
+
+.catalog-item img:hover {
+  transform: scale(1.05);
+  border: 3px solid #ff6f61; /* или другой акцентный цвет */
+}
+
+.catalog-item-text {
+  flex: 1;
+  color: #fff;
+}
+
+.catalog-item-text h3 {
+  margin: 0;
+  font-size: 1.4em;
+}
+
+.catalog-item-text p {
+  margin-top: 10px;
+  font-size: 1em;
+  color: #ccc;
+}
+
+/* Модальное окно для увеличения изображения */
+#image-modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#image-modal > div {
+  position: relative;
+}
+
+#image-modal img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+#modal-close {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 30px;
+  color: #333;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease;
+}
+
+#modal-close:hover {
+  background-color: #ff6f61;
+  color: white;
+}
+
+#scrollToTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;       /* фиксированная ширина */
+  height: 50px;      /* фиксированная высота */
+  font-size: 28px;
+  cursor: pointer;
+  display: none;     /* скрыть по умолчанию */
+  z-index: 100;
+  line-height: 50px; /* чтобы стрелка была по центру вертикально */
+  text-align: center;
+  padding: 0;        /* убрать паддинги */
+  transition: background-color 0.3s;
+}
+
+#scrollToTopBtn:hover {
+  background-color: rgba(0, 0, 0, 1);
+}

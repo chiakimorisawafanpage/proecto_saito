@@ -1,0 +1,285 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Главная — Мой сайт</title>
+
+  <!-- Подключаем все CSS по отдельности -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Cinzel+Decorative&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="{% static 'main/css/base.css' %}" />
+  <link rel="stylesheet" href="{% static 'main/css/carousel.css' %}" />
+  <link rel="stylesheet" href="{% static 'main/css/catalog.css' %}" />
+  <link rel="stylesheet" href="{% static 'main/css/contactus.css' %}" />
+  <link rel="stylesheet" href="{% static 'main/css/messages.css' %}" />
+
+  <style>
+    .success-message {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      font-weight: 600;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+    .error-message {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      font-weight: 600;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Блок для вывода сообщений Django -->
+<!-- Навигация -->
+<header>
+<nav class="top-menu">
+<ul>
+<li><a href="#home">Главная</a></li>
+<li><a href="#about">О нас</a></li>
+<li><a href="#catalog">Каталог</a></li>
+<li><a href="#contact">Контакты</a></li>
+{% if user.is_superuser %}
+<li><a href="#messages">Сообщения</a></li>
+{% endif %}
+</ul>
+</nav>
+</header>
+
+<!-- Главная секция с слайдером -->
+<section id="home">
+  <div class="carousel">
+    <div class="carousel-slide active">
+      <img src="{% static 'main/images/banner1.png' %}" alt="Слайд 1" />
+    </div>
+    <div class="carousel-slide">
+      <img src="{% static 'main/images/banner2.png' %}" alt="Слайд 2" />
+    </div>
+    <div class="carousel-slide">
+      <img src="{% static 'main/images/banner3.png' %}" alt="Слайд 3" />
+    </div>
+
+    <div class="carousel-control left" id="prev">&#10094;</div>
+    <div class="carousel-control right" id="next">&#10095;</div>
+  </div>
+
+  <div class="main-content">
+    <h1>Полина ЖЕСТКО про </h1>
+    <p>ПОЛИНА - В С Ё!</p>
+  </div>
+</section>
+
+<!-- Секция "О нас" -->
+<section id="about" class="about-section container" style="display: flex; align-items: center; gap: 40px; padding: 60px 20px; background-color: rgb(63,17,6); color: white;">
+
+  <!-- Слайдер "О нас" -->
+  <div class="about-carousel" style="flex: 1 1 33%; position: relative; height: 500px; overflow: hidden;">
+    <div class="about-slide active" style="position: absolute; width: 100%; height: 100%; opacity: 1; transition: opacity 1s ease-in-out;">
+      <img src="{% static 'main/images/00052-2106250841.png' %}" alt="О нас слайд 1" style="width: 100%; height: 100%; object-fit: cover;" />
+    </div>
+    <div class="about-slide" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 1s ease-in-out;">
+      <img src="{% static 'main/images/00050-3956866684.png' %}" alt="О нас слайд 2" style="width: 100%; height: 100%; object-fit: cover;" />
+    </div>
+    <div class="about-slide" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 1s ease-in-out;">
+      <img src="{% static 'main/images/00055-4108112815.png' %}" alt="О нас слайд 3" style="width: 100%; height: 100%; object-fit: cover;" />
+    </div>
+  </div>
+
+  <!-- Текст "О нас" -->
+  <div style="flex: 1 1 66%; color: white; max-width: 60vw;">
+    <h2 style="text-align: left;">Кто мы?</h2>
+    <p style="text-align: left; font-size: 1.1em; line-height: 1.6;">
+      Мы — команда настоящих ценителей ароматов. Каждый флакон наших духов — это история, искусство и страсть. Мы стремимся создавать ароматы, которые подчеркнут вашу индивидуальность и заставят окружающих восхищаться.
+    </p>
+  </div>
+</section>
+
+<!-- Секция "Каталог" -->
+<section id="catalog" class="catalog-section">
+  <div class="catalog-list">
+
+    <div class="catalog-item">
+      <img src="{% static 'main/images/perfume1.png' %}" alt="Аромат №1" data-large="{% static 'main/images/5a9a1a80e6b2b0444fbc37f5002aba1c.jpg' %}" />
+      <div class="catalog-item-text">
+        <h3>Аромат </h3>
+        <p>Верхние ноты: кока-кола. Средние ноты: 
+        </p>
+      </div>
+    </div>
+
+    <div class="catalog-item">
+      <img src="{% static 'main/images/perfume2.png' %}" alt="Аромат №2" data-large="{% static 'main/images/jvjZSxUetfOTrkR6ovf3E3-qgNGUkZNCiSbN1ZWvdjw3aRcqq38W5Mt5oz_DbjCTWCU5oczRdJVWxP7a9ClrcyfE.jpg' %}" />
+      <div class="catalog-item-text">
+        <h3>Аромат №2</h3>
+        <p>Яркий и запоминающийся запах.</p>
+      </div>
+    </div>
+
+    <div class="catalog-item">
+      <img src="{% static 'main/images/perfume3.png' %}" alt="Аромат №3" data-large="{% static 'main/images/JzQPKO4G08J3vkVjcG5Qr2xVB5yKHmFeryeQZvMbYUWdUI1CRLP0KsH_0Dg9-CbfuVPd7GJeNosDaz0If-3P2s1j.jpg' %}" />
+      <div class="catalog-item-text">
+        <h3>Аромат №3</h3>
+        <p>Для тех, кто любит классику и элегантность.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Модальное окно -->
+<div id="image-modal">
+  <div>
+    <button id="modal-close" aria-label="Закрыть">&times;</button>
+    <img src="" alt="Увеличенное изображение" />
+  </div>
+</div>
+<script>
+  // JS для открытия модалки и закрытия
+  document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('image-modal');
+    const modalImg = modal.querySelector('img');
+    const closeBtn = document.getElementById('modal-close');
+
+    document.querySelectorAll('.catalog-item img').forEach(img => {
+      img.addEventListener('click', () => {
+        const largeSrc = img.getAttribute('data-large') || img.src;
+        modalImg.src = largeSrc;
+        modal.style.display = 'flex';
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+      modalImg.src = '';
+    });
+
+    // Закрытие модалки при клике вне картинки
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+        modalImg.src = '';
+      }
+    });
+  });
+</script>
+
+
+<!-- Секция "Обратная связь" -->
+<section id="contact" class="contact-section">
+  <div class="contact-container">
+    <h2>Связаться с нами</h2>
+    <p class="contact-subtitle">Оставьте сообщение, и мы ответим в ближайшее время</p>
+
+    <!-- Сообщения об успехе/ошибке -->
+<div id="form-messages">
+  {% if messages %}
+    {% for message in messages %}
+      <div class="message-{{ message.tags }}" style="margin-bottom: 15px;">
+        {{ message }}
+      </div>
+    {% endfor %}
+  {% endif %}
+</div>
+
+
+
+
+    <form method="post" action="{% url 'index' %}">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="name">Имя</label>
+        <input type="text" id="name" name="name" placeholder="Ваше имя" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Сообщение</label>
+        <textarea id="message" name="message" rows="5" placeholder="Ваше сообщение..." required></textarea>
+      </div>
+      <button type="submit" class="contact-button">Отправить</button>
+    </form>
+  </div>
+</section>
+
+
+<button id="scrollToTopBtn" title="Наверх">&#8679;</button>
+
+<!-- Модальное окно успешной отправки -->
+<div id="successModal" class="modal" style="display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); 
+    justify-content:center; align-items:center; z-index: 1000;">
+  <div class="modal-content">
+    <span id="closeModal" style="position: absolute; top: 10px; right: 15px; cursor: pointer; font-size: 22px;">&times;</span>
+    <p>Вы оформили подписку на гей рассылку.
+      Какая еще обратная связь))) 
+      Подписку отключить нельзя. Ваще нельзя. </p>
+  </div>
+</div>
+
+
+<!-- Секция Messages -->
+{% if user.is_superuser %}
+<section id="messages" class="messages-section">
+  <div class="container">
+    <h2>Доска позора</h2>
+    
+    <div class="messages-list">
+      {% for msg in all_messages %}
+      <div class="message-card">
+        <div class="message-header">
+          <h3>{{ msg.name }}</h3>
+          <span class="message-date">{{ msg.created_at|date:"d.m.Y H:i" }}</span>
+        </div>
+        <div class="message-email">
+          <a href="mailto:{{ msg.email }}">{{ msg.email }}</a>
+        </div>
+        <div class="message-text">
+          {{ msg.message }}
+        </div>
+      </div>
+      {% empty %}
+      <div class="empty-messages">
+        Пока нет сообщений
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<footer>
+  <p style="text-align:center; padding:20px; background:#222; color:#fff;">© 2025 Все права защищены яой инспекцией. По всем вопросам в мой пенис</p>
+</footer>
+
+<script src="{% static 'main/js/carousel.js' %}"></script>
+<script src="{% static 'main/js/scrollToTop.js' %}"></script>
+
+<script>
+  window.onload = function() {
+    var popup = document.getElementById('form-messages');
+    if (popup && popup.children.length > 0) {
+      popup.style.display = 'block';
+      document.getElementById('contact').scrollIntoView({behavior: 'smooth'});
+      setTimeout(function() {
+        popup.style.display = 'none';
+      }, 3000);
+    }
+  }
+</script>
+
+</body>
+</html>
