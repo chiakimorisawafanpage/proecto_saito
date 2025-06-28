@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import ContactForm
-from .models import ContactMessage  # Добавьте этот импорт
+from .models import ContactMessage 
 
 def index(request):
     if request.method == 'POST':
@@ -16,8 +16,7 @@ def index(request):
         form = ContactForm()
 
     # Получаем все сообщения только для админа
-    all_messages = ContactMessage.objects.order_by('-created_at') if request.user.is_superuser else None
-    
+    all_messages = ContactMessage.objects.order_by('-created_at')
     return render(request, 'main/index.html', {
         'form': form,
         'all_messages': all_messages
